@@ -47,6 +47,14 @@ $config = [
         ],
         */
     ],
+    /*Aqui agrega para que funcionara yii 2 user*/
+    'modules' => [
+        'user' => [
+            'class' => 'dektrium\user\Module',
+            /*Para que no pida activacion del correo*/
+            'enableUnconfirmedLogin' => true,
+        ],
+    ],
     'params' => $params,
 ];
 

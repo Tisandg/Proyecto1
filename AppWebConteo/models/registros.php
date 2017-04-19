@@ -5,23 +5,23 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "pruba".
+ * This is the model class for table "registros".
  *
  * @property string $fecha
  * @property string $hora
- * @property string $num_pasajeros
+ * @property integer $num_pasajeros
  * @property string $dia
  * @property string $mes
  * @property integer $id
  */
-class Pruba extends \yii\db\ActiveRecord
+class registros extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'pruba';
+        return 'registros';
     }
 
     /**
@@ -31,8 +31,8 @@ class Pruba extends \yii\db\ActiveRecord
     {
         return [
             [['fecha', 'hora', 'num_pasajeros', 'dia', 'mes', 'id'], 'required'],
-            [['id'], 'integer'],
-            [['fecha', 'hora', 'num_pasajeros', 'dia', 'mes'], 'string', 'max' => 100],
+            [['num_pasajeros', 'id'], 'integer'],
+            [['fecha', 'hora', 'dia', 'mes'], 'string', 'max' => 45],
         ];
     }
 

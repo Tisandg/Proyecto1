@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Pruba;
-use app\models\PrubaSearch;
+use app\models\registros;
+use app\models\registrosSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PrubaController implements the CRUD actions for Pruba model.
+ * RegistrosController implements the CRUD actions for registros model.
  */
-class PrubaController extends Controller
+class RegistrosController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class PrubaController extends Controller
     }
 
     /**
-     * Lists all Pruba models.
+     * Lists all registros models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PrubaSearch();
+        $searchModel = new registrosSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class PrubaController extends Controller
     }
 
     /**
-     * Displays a single Pruba model.
+     * Displays a single registros model.
      * @param integer $id
      * @return mixed
      */
@@ -57,13 +57,13 @@ class PrubaController extends Controller
     }
 
     /**
-     * Creates a new Pruba model.
+     * Creates a new registros model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Pruba();
+        $model = new registros();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -75,7 +75,7 @@ class PrubaController extends Controller
     }
 
     /**
-     * Updates an existing Pruba model.
+     * Updates an existing registros model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -94,7 +94,7 @@ class PrubaController extends Controller
     }
 
     /**
-     * Deletes an existing Pruba model.
+     * Deletes an existing registros model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class PrubaController extends Controller
     }
 
     /**
-     * Finds the Pruba model based on its primary key value.
+     * Finds the registros model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Pruba the loaded model
+     * @return registros the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Pruba::findOne($id)) !== null) {
+        if (($model = registros::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

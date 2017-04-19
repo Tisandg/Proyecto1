@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Pruba;
+use app\models\registros;
 
 /**
- * PrubaSearch represents the model behind the search form about `app\models\Pruba`.
+ * registrosSearch represents the model behind the search form about `app\models\registros`.
  */
-class PrubaSearch extends Pruba
+class registrosSearch extends registros
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class PrubaSearch extends Pruba
     public function rules()
     {
         return [
-            [['fecha', 'hora', 'num_pasajeros', 'dia', 'mes'], 'safe'],
-            [['id'], 'integer'],
+            [['fecha', 'hora', 'dia', 'mes'], 'safe'],
+            [['num_pasajeros', 'id'], 'integer'],
         ];
     }
 
@@ -41,7 +41,7 @@ class PrubaSearch extends Pruba
      */
     public function search($params)
     {
-        $query = Pruba::find();
+        $query = registros::find();
 
         // add conditions that should always apply here
 
@@ -59,12 +59,12 @@ class PrubaSearch extends Pruba
 
         // grid filtering conditions
         $query->andFilterWhere([
+            'num_pasajeros' => $this->num_pasajeros,
             'id' => $this->id,
         ]);
 
         $query->andFilterWhere(['like', 'fecha', $this->fecha])
             ->andFilterWhere(['like', 'hora', $this->hora])
-            ->andFilterWhere(['like', 'num_pasajeros', $this->num_pasajeros])
             ->andFilterWhere(['like', 'dia', $this->dia])
             ->andFilterWhere(['like', 'mes', $this->mes]);
 
